@@ -51,13 +51,11 @@ Or animate all pages on your site:
     var route = transition.route();
     var getName = ...
 
-    function handler(direction) {
-      return function (page, model, params, next) {
-        var from = getName(params.previous);
-        var to = getName(params.url);
-        var trans = route(direction, from, to);
-        trans(page, model, params, next);
-      }
+    function handler(page, model, params, next) {
+      var from = getName(params.previous);
+      var to = getName(params.url);
+      var trans = route.forward(from, to);
+      trans(page, model, params, next);
     }
 
     app.get({from: '*', to: '*'}, {
@@ -106,10 +104,10 @@ If a page type isn't found, then it won't be animated.
     app.get('/about', ...);
 
     app.map('/terms', 'basicPage');
-    app.map('/terms', ...);
+    app.get('/terms', ...);
 
     app.map('/home', 'heroPage');
-    app.map('/home', ...);
+    app.get('/home', ...);
 
     // no transition from signin page
     app.get('/signin', ...)
@@ -123,7 +121,7 @@ If a page type isn't found, then it won't be animated.
 
 Pass in `null` to the route function for it to refer to the map.
 
-Css options
+CSS options
 -----------
 
 **class** - The css class name. Defaults to **transition**.

@@ -131,7 +131,7 @@ CSS options
 Route function
 --------------
 
-transition.route([globalOptions])(direction, from, [to], [options])
+`transition.route([globalOptions])(direction, from, [to], [options])`
 
 options or globalOptions:
 
@@ -150,4 +150,4 @@ transition.route([globalOptions]).back(from, [to], [options])
 Notes
 -----
 
-To ensure a smooth transition, the ending state of the page animating out should match the starting state of a page animating in.
+To ensure a smooth transition, the ending state of the page animating out should match the starting state of the page animating in.

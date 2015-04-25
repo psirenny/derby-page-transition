@@ -6,7 +6,7 @@
   "dependencies": {
     "lodash": "^3.7.0"
   },
-  "description": "Make it easier to add transitions between page renders.",
+  "description": "Add smooth page transitions between Derby JS page renders.",
   "devDependencies": {
     "racer": "^0.6.0-alpha32",
     "tape": "^4.0.0"

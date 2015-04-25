@@ -1,7 +1,7 @@
 Derby Page Transition
 =====================
 
-Make it easier to add smooth transitions across page renders.
+Add smooth page transitions between Derby JS page renders.
 
 How it works
 ------------
@@ -96,7 +96,7 @@ Mapping pages
 
 It's not feasible to add transitions between the cross product of all your pages.
 Map your pages to types and transition between those types instead.
-If a page isn't found, then it won't be animated.
+If a page type isn't found, then it won't be animated.
 
     var transition = require('derby-page-transition');
     var map = app.map = transition.map();

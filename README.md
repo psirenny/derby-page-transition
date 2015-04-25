@@ -61,8 +61,7 @@ Or animate all pages on your site:
     }
 
     app.get({from: '*', to: '*'}, {
-      forward: handler('forward'),
-      back: handler('back')
+      forward: handler('forward')
     });
 
 Add some animations to your stylesheet:
@@ -119,8 +118,7 @@ If a page isn't found, then it won't be animated.
     var route = transition.route({map: map});
 
     app.get({from: '*', to: '*'}, {
-      forward: route.forward(null, null),
-      back: route.back(null, null)
+      forward: route.forward(null, null)
     });
 
 Pass in `null` to the route function for it to refer to the map.

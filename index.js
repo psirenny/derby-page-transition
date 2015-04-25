@@ -16,8 +16,8 @@ module.exports.css = function (options) {
     var css = opts.class;
     css += ' ' + opts.class + opts.sep + (transition.direction === 'forward' ? 'forward' : 'back');
     css += ' ' + opts.class + opts.sep + (transition.in ? 'in' : 'out');
-    css += ' ' + opts.class + opts.sep + 'from' + opts.sep + transition.from;
-    css += ' ' + opts.class + opts.sep + 'to' + opts.sep + transition.to;
+    if (transition.from) css += ' ' + opts.class + opts.sep + 'from' + opts.sep + transition.from;
+    if (transition.to) css += ' ' + opts.class + opts.sep + 'to' + opts.sep + transition.to;
     return css;
   };
 };
@@ -30,14 +30,9 @@ module.exports.map = function () {
   };
 };
 
-module.exports.route = function (options) {
+module.exports.route = function (app, options) {
   var route = function (dir, from, to, opts) {
     var opts = _.merge({}, defaults, options || {}, opts || {});
-
-    function end() {
-      model.set('$transition.in', true);
-      next();
-    }
 
     return function (page, model, params, next) {
       var $transition = model.at(opts.path);
@@ -48,13 +43,12 @@ module.exports.route = function (options) {
       $transition.set('from', from);
       $transition.set('to', to);
 
-      function end() {
+      app.once('render', function () {
         $transition.set('in', true);
-        next();
-      }
+      });
 
-      if (!from) end();
-      _.delay(end, opts.delay);
+      if (from) return _.delay(next, opts.delay);
+      next();
     };
   };
 

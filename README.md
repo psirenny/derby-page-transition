@@ -143,9 +143,9 @@ options or globalOptions:
 
 You may also call:
 
-transition.route([globalOptions]).forward(from, [to], [options])
+`transition.route([globalOptions]).forward(from, [to], [options])`
 
-transition.route([globalOptions]).back(from, [to], [options])
+`transition.route([globalOptions]).back(from, [to], [options])`
 
 Notes
 -----

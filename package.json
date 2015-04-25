@@ -1,0 +1,31 @@
+{
+  "author": "Dennis Torres <djtorres0@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/psirenny/derby-page-transition/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.7.0"
+  },
+  "description": "Make it easier to add transitions between page renders.",
+  "devDependencies": {
+    "racer": "^0.6.0-alpha32",
+    "tape": "^4.0.0"
+  },
+  "keywords": [
+    "derby",
+    "page",
+    "transition"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "derby-page-transition",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/psirenny/derby-page-transition.git"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "version": "1.0.0"
+}
